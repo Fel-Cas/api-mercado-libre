@@ -1,1 +1,31 @@
-<p>items-list works!</p>
+<section>
+    <h3>Formulario de busqueda</h3>
+    <form [formGroup]="formItem" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="">Nombre del producto que desea buscar:</label>
+            <input type="text" formControlName="itemName">
+        </div>
+        <div>
+            <input type="submit" value="Buscar">
+        </div>
+    </form>
+</section>
+
+
+<section>
+    <div>
+        <article *ngIf="items.length==0">
+            <p><b>No has buscado ningún producto o no se encontrarón resultados</b></p>
+        </article>
+    </div>
+    <div *ngIf="items.length>0" >
+        <div *ngFor="let item of items" >
+            <article >
+                <h5>{{item.title}} </h5>
+                <img src="{{item.thumbnail}}" [alt]="item.title" [routerLink]="['/item-detail/',item.id]">
+                <p>Precio: {{item.price}} {{item.currency_id}}</p>
+            </article>
+        </div>        
+    </div>
+    
+</section>
