@@ -1,1 +1,12 @@
-<p>item-detail works!</p>
+<div>
+    <section>
+        <h2> {{item.title}} </h2>
+        <p>{{item.warranty}}</p>
+        <p>Precio: {{item.price}} {{item.currency_id}}</p>
+        
+        <div *ngFor="let picture of item.pictures">
+            <img src="{{picture.url}}" alt="{{item.title}}">
+        </div>
+        
+     </section>
+</div>
